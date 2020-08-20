@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ;//////////////////////////////////////////////////////////////
 ; initialization
 ; env variables
@@ -125,14 +125,10 @@ $Rshift:: ; short tap trigger
 ; layer 1 commands
 ;//////////////////////////////////////////////////////////////
 #If kbd_layer=1
-  q::
-  Send, {LAlt Up}{LButton Down}
-  KeyWait, q ; for drag
-  Send, {LButton Up}{LAlt Down}
-  return  
-  e::Send, {LAlt Up}{RButton}{LAlt Down}
-  r::Send, {LAlt Up}{WheelUp}{LAlt Down}
-  f::Send, {LAlt Up}{WheelDown}{LAlt Down}
+  q::LButton
+  e::RButton
+  r::WheelUp
+  f::WheelDown
   
   a:: ; left mouse
   w:: ; up
@@ -152,8 +148,8 @@ $Rshift:: ; short tap trigger
     mouse_move_distance := mouse_move_distance_start
   }
     
-  mouse_move_x := GetKeyState("l","P")*mouse_move_distance -GetKeyState("j","P")*mouse_move_distance 
-  mouse_move_y := GetKeyState("k","P")*mouse_move_distance -GetKeyState("i","P")*mouse_move_distance 
+  mouse_move_x := GetKeyState("d","P")*mouse_move_distance -GetKeyState("a","P")*mouse_move_distance 
+  mouse_move_y := GetKeyState("s","P")*mouse_move_distance -GetKeyState("w","P")*mouse_move_distance 
   MouseMove, %mouse_move_x%, %mouse_move_y% , 0, R
   mouse_move_last := A_TickCount
   return

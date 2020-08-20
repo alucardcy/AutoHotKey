@@ -125,20 +125,19 @@ $Rshift:: ; short tap trigger
 ; layer 1 commands
 ;//////////////////////////////////////////////////////////////
 #If kbd_layer=1
-  !u::
+  q::
   Send, {LAlt Up}{LButton Down}
-  KeyWait, u ; for drag
+  KeyWait, q ; for drag
   Send, {LButton Up}{LAlt Down}
   return  
-  !o::Send, {LAlt Up}{RButton}{LAlt Down}
-  !p::Send, {LAlt Up}{MButton}{LAlt Down}
-  !y::Send, {LAlt Up}{WheelUp}{LAlt Down}
-  !h::Send, {LAlt Up}{WheelDown}{LAlt Down}
+  e::Send, {LAlt Up}{RButton}{LAlt Down}
+  r::Send, {LAlt Up}{WheelUp}{LAlt Down}
+  f::Send, {LAlt Up}{WheelDown}{LAlt Down}
   
-  !j:: ; left mouse
-  !i:: ; up
-  !k:: ; down
-  !l:: ; right
+  a:: ; left mouse
+  w:: ; up
+  s:: ; down
+  d:: ; right
   global mouse_move_last
   global mouse_move_distance
   mouse_move_interval := A_TickCount - mouse_move_last
@@ -159,30 +158,13 @@ $Rshift:: ; short tap trigger
   mouse_move_last := A_TickCount
   return
   
-  e::=
-  s::*
-  d::/
-  r::-
-  f::+
-  t::(
-  g::)
   
   i::Up
   k::Down
   j::Left
   l::Right
-  y::Home
-  u::End
-  p::PgUp
-  o::PgDn 
-  7::PrintScreen
-  h::Backspace
-  n::Delete
-  m::AppsKey
-  
-  q::Escape
-  '::Escape
-
+  u::Home
+  o::End
 
 return ; end kbd_layer= 1
 
